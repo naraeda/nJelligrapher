@@ -68,4 +68,10 @@ public class UserCtrl {
     			return "loginReg.jsp";
     		}
     }
+    
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+    		session.invalidate();
+    		return "redirect:/";
+    }
 }
