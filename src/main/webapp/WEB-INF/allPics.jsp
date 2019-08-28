@@ -8,26 +8,33 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="/js/script.js"></script>
 	<link rel="stylesheet" href="/css/style.css"/>
-	<title>All Images</title>
+	<title>Jelligrapher</title>
 </head>
 <body>
 	<div class="images">
-		<c:forEach var="image" items="${images}">
-			<div class="vote_status">
-				<c:choose>
-					<c:when test="${image.votes le 50}">
-						<p id="low_vote"></p>
-					</c:when>
-					<c:otherwise>
-						<p id="high_vote"></p>
-					</c:otherwise>
-				</c:choose>
-			</div>
-			<div class="post">
-				<p><c:out value="${image}"/></p>
+	<div class="image">
+				<div class="vote_bar">
+					<div class="vote_fill"></div>
+				</div>
+				<div class="post">
+					<p><c:out value="${picture}"/></p>
+				</div>
+				<a data-photo-id="${image.id}" href="#" class="like_button neutral">Like</a>
+				</div>
+		<c:forEach var="picture" items="${pictures}">
+			<div class="image">
+				<div class="vote_bar">
+					<div class="vote_fill"></div>
+				</div>
+				<div class="post">
+					<p><c:out value="${picture}"/></p>
+				</div>
+				<a data-photo-id="${image.id}" href="#" class="like_button neutral">Like</a>
 			</div>
 		</c:forEach>
 	</div>
+	<div>This page is loading correctly</div>
 </body>
 </html>
