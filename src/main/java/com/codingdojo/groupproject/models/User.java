@@ -37,6 +37,7 @@ public class User {
     private String lastName;
     
     @Email(message="Email must be valid!")
+    @Size(min=2, message="Email must be filled in!")
     private String email;
     
     @Size(min=2, message="City must be greater than 2 characters!")
