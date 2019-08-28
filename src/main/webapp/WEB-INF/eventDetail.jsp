@@ -23,6 +23,7 @@
 		<input type="submit" value="Search Tags">
 	</form>
 	
+	
 
 	<%-- <p><form:errors path="photo.*"/></p> --%>
 	 <form method="POST" action="/events/${event.id}">
