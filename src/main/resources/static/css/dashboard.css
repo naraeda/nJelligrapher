@@ -1,0 +1,26 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+body{
+	padding: 10px;
+}
+table{
+	border-collapse: collapse;
+/* 	padding: 30px; */
+}
+th {
+	border: 1px solid black;
+	padding: 5px;
+}
+td {
+	border: 1px solid black;
+	padding: 5px; 
+}
+button{
+	padding: 5px; 
+}
+h6{
+	display:inline-block;
+	padding: 5px;
+}
