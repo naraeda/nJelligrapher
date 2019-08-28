@@ -2,3 +2,27 @@
 	padding:0px;
 	margin:0px;
 }
+
+.vote_bar{
+	border:1px solid black;
+	width:100%;
+	height:30px;
+	padding:10px;
+}
+
+.vote_fill{
+	width:0%;
+	height:30px;
+	background:linear-gradient(white, gold, teal, royalblue);
+}
+
+.image{
+	width:35%;
+}
+
+.neutral{
+	color:grey;
+}
+.liked{
+	color:blue;
+}

@@ -62,6 +62,18 @@ public class User {
 	@OneToMany(mappedBy="host", fetch = FetchType.LAZY)
     private List<Event> eventsCreated;
 	
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Picture> pictures;
+	
+	public List<Picture> getPictures() {
+		return pictures;
+	}
+
+
+
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
 	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "users_events", 

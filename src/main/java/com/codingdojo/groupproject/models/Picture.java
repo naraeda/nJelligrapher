@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import javax.persistence.ManyToOne;
+
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -36,6 +39,22 @@ public class Picture {
     @Size(min=2, message="State must be more than 2 characters!")
     private String state;
     
+    @Size(min=0)
+    @Size(max=100,message="Sorry this pictures likes has reached max capacity.")
+    private int likes;
+    
+    public String getUrl() {
+		return url;
+	}
+
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	private String url;
+
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -55,6 +74,10 @@ public class Picture {
 	public Picture() {
 		
 	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id")
+    private User user;
 	
 	
 
@@ -126,6 +149,29 @@ public class Picture {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	
+    
+	public int getLikes() {
+		return likes;
+	}
+
+
+
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 
