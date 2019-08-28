@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/css/dashboard.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Events Dashboard</title>
+<title>Jelligrapher</title>
 </head>
 <body>
 	<h1>Welcome, <c:out value="${user.firstName}"/> <i class="fa fa-heart" aria-hidden="true"></i></h1>
@@ -154,15 +154,15 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Add An Event</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
 			<p><form:errors path="event.*"/></p>
 			<form:form action="/events" method="POST" modelAttribute="event">
 				<p>
 					<form:label path="name">Name: </form:label>
-					<form:input type="text" path="name"/>
+					<form:input type="text" placeholder="Event Name" path="name"/>
 				</p>
 				<p>
 					<form:label path="date">Date: </form:label>
@@ -170,11 +170,12 @@
 				</p>
 				<p>
 					<form:label path="description">Description: </form:label>
-					<form:input type="text" path="description"/>
+					<form:input type="text" placeholder="Tell us about the event!" path="description"/>
 				</p>
 				<p>
 					<form:label path="city">Location: </form:label>
-					<form:input type="text" path="city"/>
+					<form:input type="text" placeholder="City of event" path="city"/>
+					
 					<form:select path="state">
 							<form:option value="AL">AL</form:option>
 							<form:option value="AK">AK</form:option>
@@ -229,18 +230,19 @@
 							<form:option value="WY">WY</form:option>
 						</form:select>				
 				</p>
-					<form:hidden path="host" value="${user.id}"></form:hidden>
-				<button>Add Event</button>
+				<form:hidden path="host" value="${user.id}"></form:hidden>
+				<hr>
+				<button id="add" class="btn btn -default">Add Event</button>
+        		<button type="button" id="cancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			</form:form>
-  
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </div>
 
   </div>
 </div>
+<br>
+<a href="logout"><button type="button" class="btn btn-info btn-sm">Log Out</button></a>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
