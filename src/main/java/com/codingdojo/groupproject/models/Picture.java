@@ -1,12 +1,17 @@
 package com.codingdojo.groupproject.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -38,6 +43,15 @@ public class Picture {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
     
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+		name = "pictures_tags",
+		joinColumns = @JoinColumn(name = "picture_id"),
+		inverseJoinColumns = @JoinColumn(name = "tag_id")
+	)
+	
+	private List<Tag> tags;
+	
 	public Picture() {
 		
 	}
@@ -112,6 +126,18 @@ public class Picture {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
 	}
 
 

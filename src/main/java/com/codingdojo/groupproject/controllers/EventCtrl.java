@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.groupproject.models.Event;
@@ -80,6 +81,11 @@ public class EventCtrl {
 	public String removeEvent(@PathVariable("id") Long id) {
 		eS.deleteEvent(id);
 		return "redirect:/events";
+	}
+	
+	@PostMapping("/search")
+	public String search(@RequestParam("tag") String tag) {
+		return "redirect:/search/" + tag;
 	}
 	
 }
