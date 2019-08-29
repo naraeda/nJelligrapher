@@ -14,24 +14,25 @@
 </head>
 <body>
 	<div class="images">
-	<div class="image">
-				<div class="vote_bar">
+	<!-- <div class="image"> -->
+				<%-- <div class="vote_bar">
 					<div class="vote_fill"></div>
 				</div>
 				<div class="post">
 					<p><c:out value="${picture}"/></p>
 				</div>
 				<a data-photo-id="${image.id}" href="#" class="like_button neutral">Like</a>
-				</div>
+				</div> --%>
 		<c:forEach var="picture" items="${pictures}">
 			<div class="image">
 				<div class="vote_bar">
 					<div class="vote_fill"></div>
 				</div>
+				<img src="${picture.url}" width=200>
 				<div class="post">
 					<p><c:out value="${picture}"/></p>
 				</div>
-				<a data-photo-id="${image.id}" href="#" class="like_button neutral">Like</a>
+				<a data-photo-id="${picture.id}" href="#" class="like_button neutral">Like</a>
 			</div>
 		</c:forEach>
 	</div>

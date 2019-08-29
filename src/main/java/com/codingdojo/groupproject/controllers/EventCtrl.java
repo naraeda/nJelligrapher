@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.groupproject.models.Event;
+import com.codingdojo.groupproject.models.Picture;
 import com.codingdojo.groupproject.models.User;
 import com.codingdojo.groupproject.models.UserEvent;
 import com.codingdojo.groupproject.services.EventServ;
@@ -63,7 +64,7 @@ public class EventCtrl {
 	}
 	
 	@GetMapping("/events/{id}")
-	public String showOneEvent(@PathVariable("id") Long id, Model model, HttpSession session) {
+	public String showOneEvent(@PathVariable("id") Long id, Model model, HttpSession session, @ModelAttribute("picture") Picture pic) {
 		Long userId = (Long) session.getAttribute("userId");
 		User u = uS.findUserById(userId);
 		model.addAttribute("user", u);
