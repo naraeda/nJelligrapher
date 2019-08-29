@@ -16,7 +16,7 @@
 <body>
 	<h1>Welcome, <c:out value="${user.firstName}"/> <i class="fa fa-heart" aria-hidden="true"></i></h1>
 	<a href="/announcements"><button type="button" class="btn btn-info btn-sm">Announcements</button></a>
-	<a href=""><button type="button" class="btn btn-info btn-sm">View Submitted Pictures</button></a>
+	<a href="/events/pictures"><button type="button" class="btn btn-info btn-sm">View Submitted Pictures</button></a>
 	
 	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add An Event</button>
 	

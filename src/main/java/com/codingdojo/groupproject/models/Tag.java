@@ -1,17 +1,12 @@
 package com.codingdojo.groupproject.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -37,13 +32,13 @@ public class Tag {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(
-		name = "pictures_tags",
-		joinColumns = @JoinColumn(name = "tag_id"),
-		inverseJoinColumns = @JoinColumn(name = "picture_id")
-	)
-	private List<Tag> tags;
+//	@ManyToMany(fetch = FetchType.LAZY)
+//	@JoinTable(
+//		name = "pictures_tags",
+//		joinColumns = @JoinColumn(name = "tag_id"),
+//		inverseJoinColumns = @JoinColumn(name = "picture_id")
+//	)
+//	private Picture picture;
 	
 	public Tag() {
 		
@@ -100,15 +95,15 @@ public class Tag {
 
 
 
-	public List<Tag> getTags() {
-		return tags;
-	}
-
-
-
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
-	}
+//	public List<Tag> getTags() {
+//		return tags;
+//	}
+//
+//
+//
+//	public void setTags(List<Tag> tags) {
+//		this.tags = tags;
+//	}
 
 
 

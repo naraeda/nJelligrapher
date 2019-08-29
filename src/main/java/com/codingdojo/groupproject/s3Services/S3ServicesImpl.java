@@ -72,5 +72,4 @@ public class S3ServicesImpl implements S3Services{
 	            logger.info("Error Message: " + ace.getMessage());
 	        }
 	  }
-
 }

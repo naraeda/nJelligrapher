@@ -18,30 +18,37 @@
 	<h3>Location: <c:out value="${event.city}"/>, <c:out value="${event.state}"/></h3>
 	<h3>Description: <c:out value="${event.description}"/></h3>
 
+
 	<form action="/search" method="post" placeholder="tag">
 		<input type="search" name="tag">
 		<input type="submit" value="Search Tags">
 	</form>
 	
-	
 
 	<%-- <p><form:errors path="photo.*"/></p> --%>
-	 <form method="POST" action="/events/${event.id}">
+	<form:form method="POST" action="/test"  modelAttribute="picture" enctype="multipart/form-data">
         <p>
-            <label>Picture:</label>
-            <input type="file"/>
+            <label for="imgUrl">Image</label>
+            <input type="file" name="imgUrl"/>
+        </p>
+        <p>
+            <form:label path="title">Title:</form:label>
+            <form:input type="text" path="title"/>
         </p>
        	<p>
-            <label>Tags:</label>
-            <input type="text"/>
+            <form:label path="city">City:</form:label>
+            <form:input type="text" path="city"/>
         </p>
         <p>
-            <label>Location:</label>
-            
+            <form:label path="state">State:</form:label>
+            <form:input type="text" path="state"/>
         </p>
-     <input type="submit" value="Register!"/>
-    </form>
+    <form:hidden path="user" value="${user.id}"></form:hidden>
+    <form:hidden path="event" value="${event.id}"></form:hidden>
+    <button>Submit</button>
+    </form:form> 
 	
+	<!--  -->
 	
 	<form action="/events/${event.id}" method="post">
 		<input type="hidden" name="_method" value="put">

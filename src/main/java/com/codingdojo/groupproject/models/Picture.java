@@ -1,7 +1,6 @@
 package com.codingdojo.groupproject.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,11 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-
 import javax.persistence.ManyToOne;
-
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -39,9 +34,7 @@ public class Picture {
     @Size(min=2, message="State must be more than 2 characters!")
     private String state;
     
-    @Size(min=0)
-    @Size(max=100,message="Sorry this pictures likes has reached max capacity.")
-    private int likes;
+  private int likes;
     
     public String getUrl() {
 		return url;
@@ -61,16 +54,7 @@ public class Picture {
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-    
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(
-		name = "pictures_tags",
-		joinColumns = @JoinColumn(name = "picture_id"),
-		inverseJoinColumns = @JoinColumn(name = "tag_id")
-	)
-	
-	private List<Tag> tags;
-	
+
 	public Picture() {
 		
 	}
@@ -78,6 +62,10 @@ public class Picture {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
     private User user;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="event_id")
+    private Event event;
 	
 	
 
@@ -89,6 +77,18 @@ public class Picture {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+
+
+	public Event getEvent() {
+		return event;
+	}
+
+
+
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 
@@ -176,15 +176,15 @@ public class Picture {
 
 
 
-	public List<Tag> getTags() {
-		return tags;
-	}
-
-
-
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
-	}
+//	public List<Tag> getTags() {
+//		return tags;
+//	}
+//
+//
+//
+//	public void setTags(List<Tag> tags) {
+//		this.tags = tags;
+//	}
 
 
 

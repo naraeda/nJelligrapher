@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -50,6 +51,9 @@ public class Event {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
+	@OneToMany(mappedBy="event", fetch = FetchType.LAZY)
+    private List<Picture> pictures;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User host;
@@ -70,6 +74,20 @@ public class Event {
 
 	
 	
+	public List<Picture> getPictures() {
+		return pictures;
+	}
+
+
+
+
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
+
+
+
+
 	public User getHost() {
 		return host;
 	}
