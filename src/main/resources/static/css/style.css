@@ -254,11 +254,11 @@ select{
   outline: 0;
   color: Black;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: bold;
   position: relative;
   z-index: 3;
   letter-spacing: 2px;
-  background: linear-gradient(45deg, orange,gold, yellow,white);
+  background: linear-gradient(45deg, orange,gold, yellow);
   font-family: 'Playfair Display', serif;
 }
 
