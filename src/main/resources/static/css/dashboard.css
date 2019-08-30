@@ -1,24 +1,41 @@
 *{
 	padding:0px;
 	margin:0px;
+	color: white;
+
 }
 body{
 	padding: 10px;
+	background:linear-gradient(Turquoise,LightSeaGreen,DarkCyan,LightSeaGreen,Turquoise);
+}
+.container{
+	text-align:center;
 }
 table{
 	border-collapse: collapse;
+/* 	border-color: white; */
 /* 	padding: 30px; */
 }
 th {
-	border: 1px solid black;
+	border: 2px solid white;
 	padding: 5px;
+ 	background: #e6e65f; 
+ 	color: teal;
+
 }
 td {
-	border: 1px solid black;
+	border: 2px solid white;
 	padding: 5px; 
+ 	background: #e6e65f; 
+ 	color: teal;
 }
 button{
 	padding: 5px; 
+	border-radius: 10px;
+	color: teal;
+    background-color: gold;
+    border-color: #17a2b8;
+    font-size: 15px;
 }
 h6{
 	display:inline-block;

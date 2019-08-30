@@ -135,7 +135,7 @@
 	<form:form method="POST" action="/test"  modelAttribute="picture" enctype="multipart/form-data">
         <p>
             <label for="imgUrl">Image:</label>
-            <input type="file" name="imgUrl"/>
+            <input type="file" name="imgUrl" class="fileinput"/>
         </p>
         <p>
             <form:label path="title">Title:</form:label>
