@@ -14,6 +14,7 @@
 <title>Jelligrapher</title>
 </head>
 <body>
+<div class="center">
 	<h1>Welcome, <c:out value="${user.firstName}"/> <i class="fa fa-heart" aria-hidden="true"></i></h1>
 	<a href="/announcements"><button type="button" class="btn btn-info btn-sm">Announcements</button></a>
 	<a href=""><button type="button" class="btn btn-info btn-sm">View Submitted Pictures</button></a>
@@ -239,6 +240,7 @@
     </div>
 
   </div>
+</div>
 </div>
 <br>
 <a href="logout"><button type="button" class="btn btn-info btn-sm">Log Out</button></a>

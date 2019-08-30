@@ -10,6 +10,7 @@ body{
 	font-size: 20px;
 	padding: 20px;
 	line-height: 2;
+	background:linear-gradient(Turquoise,LightSeaGreen,DarkCyan,LightSeaGreen,Turquoise);
 /* 	margin-left: 50%; */
 	/*  */
 	
@@ -33,6 +34,12 @@ input{
 	color: grey;
 	padding: 3px;
 	margin: 3px;
+}
+/* .fileinput{
+	color: gold;
+} */
+input .fileinput{
+	font-size:30px;
 }
 h1{
 	font-family: "Comic Sans MS";
@@ -62,11 +69,11 @@ h1{
 	padding:25px;
 	height: 475px;
 	overflow: auto;
+	background:white;
 }
 .leftContent h3{
 	text-align:left;
 }
-
 .search{
 	margin: 60px 0px 10px 0px;
 	text-align:right;
@@ -88,6 +95,7 @@ h4{
 	border: 1px solid teal;
 	border-radius: 10px;
 	height: 485px;
+	background:white;
 	
 }
 .rightContent p{
