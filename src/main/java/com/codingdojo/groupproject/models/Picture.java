@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -34,6 +35,7 @@ public class Picture {
     @Size(min=2, message="State must be more than 2 characters!")
     private String state;
     
+    @Max(value=100)
   private int likes;
     
     public String getUrl() {
