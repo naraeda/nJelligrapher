@@ -7,14 +7,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/script.js"></script>
 <title>Welcome to Jelligrapher!</title>
 </head>
 <body>
-			    <h1>Register!</h1>
-    
+	<div class="container">
+		 <div class="message signup">
+    		<div class="btn-wrapper">
+		      <button class="button" id="signup">SignUp</button>
+		      <button class="button" id="login"> Login</button>
+		 	</div>
+  		</div>
+			    
+    <div class="form form--signup">
+    <div class="form--heading">Welcome! Sign Up</div>
     <p><form:errors path="user.*"/></p>
 
-    <form:form method="POST" action="/" modelAttribute="user">
+    <form:form method="POST" action="/" modelAttribute="user" autocomplete="off">
         <p>
             <form:label path="firstName">First Name:</form:label>
             <form:input type="text" path="firstName"/>
@@ -92,23 +103,26 @@
             <form:label path="passwordConfirmation">Password Confirmation:</form:label>
             <form:password path="passwordConfirmation"/>
         </p>
-        <input type="submit" value="Register!"/>
+        <button class="button" type="submit">Sign Up!</button>
     </form:form>
-    
-   	<h1>Login</h1>
+    </div>
+    <div class="form form--login">
+   	<div class="form--heading">Welcome Back!</div>
     <p><c:out value="${invalid}"/></p>
     <p><c:out value="${invalid2}"/></p>
     <p><c:out value="${error2}"/></p>
-    <form method="post" action="/login">
+    <form method="post" action="/login" autocomplete="off">
         <p>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email"/>
+            <input type="email"  name="email"/>
         </p>
         <p>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password"/>
+            <input type="password" name="password"/>
         </p>
-        <input type="submit" value="Login!"/>
-    </form>    
+        <button class="button" type="submit">Login!</button>
+    </form>   
+    </div> 
+    </div>
 </body>
 </html>
