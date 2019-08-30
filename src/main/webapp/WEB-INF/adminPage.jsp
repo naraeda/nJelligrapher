@@ -27,7 +27,9 @@
 </head>
 <body>
 	
-	<a href="mailTo:cherry2ney@gmail.com"> Contact Us</a>
+	<a href="mailTo:cherry2ney@gmail.com"> Contact Narae</a>
+	<a href="mailTo:elliezhao14@gmail.com"> Contact Ellie</a>
+	<a href="mailTo:jeffhendricks00@gmail.com"> Contact Jeff</a>
 	
 	<h2><p id="city">${ event.city }</p></h2>
 	
