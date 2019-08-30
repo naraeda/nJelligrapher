@@ -16,10 +16,10 @@
 	<h3>We're looking forward to see your awesome photos!</h3>
 	
 	<p>*If you have any questions or concerns, feel free to contact us at: </p>
-	<ul>
-		<li>ellie@z.com</li>
-		<li>narae@k.com</li>
-		<li>jeff@h.com</li>
-	</ul>
+
+		<a href="mailTo:cherry2ney@gmail.com"> Contact Narae</a>
+		<a href="mailTo:elliezhao14@gmail.com"> Contact Ellie</a>
+		<a href="mailTo:jeffhendricks00@gmail.com"> Contact Jeff</a>
+
 </body>
 </html>

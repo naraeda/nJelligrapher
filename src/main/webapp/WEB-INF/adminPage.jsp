@@ -27,7 +27,7 @@
 </head>
 <body>
 	
-	<a href="mailTo:cherry2ney@gmail.com"> Contact Us</a>
+
 	
 	<h2><p id="city">${ event.city }</p></h2>
 	
