@@ -24,7 +24,11 @@ $(document).ready(function(){
 			var likes = res;
 			console.log(res)
 			console.log("hello");
+			if(likes >= 100){
+				$(".vote_fill").css("width", "100%");
+			}else{
 			$(".vote_fill").css("width", `${likes}%`);
+			}
 		})
 		
 	})
@@ -44,4 +48,8 @@ $(document).ready(function(){
 	  }
 	  $(".message").addClass("login");
 	})
+	
+	$('.like_button').click(function(){
+        $(this).toggleClass('is-active');
+    })
 })

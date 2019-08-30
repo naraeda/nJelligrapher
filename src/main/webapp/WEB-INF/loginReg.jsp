@@ -17,12 +17,12 @@
 		 <div class="message signup">
     		<div class="btn-wrapper">
 		      <button class="button" id="signup">SignUp</button>
-		      <button class="button" id="login"> Login</button>
+		      <button class="button" id="login"> Already Registered?</button>
 		 	</div>
   		</div>
 			    
     <div class="form form--signup">
-    <div class="form--heading">Welcome! Sign Up</div>
+    <div class="form--heading">Sign Up</div>
     <p><form:errors path="user.*"/></p>
 
     <form:form method="POST" action="/" modelAttribute="user" autocomplete="off">
@@ -103,7 +103,7 @@
             <form:label path="passwordConfirmation">Password Confirmation:</form:label>
             <form:password path="passwordConfirmation"/>
         </p>
-        <button class="button" type="submit">Sign Up!</button>
+        <button class="button signOne" type="submit">Sign Up!</button>
     </form:form>
     </div>
     <div class="form form--login">

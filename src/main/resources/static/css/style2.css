@@ -1,0 +1,13 @@
+
+body{
+	font-family:LemonJellyPersonalUse;
+	font-weight:bold;
+	font-size:70px;
+}
+
+.header{
+	vertical-align:top;
+	margin-bottom:100px;
+	color:white;
+	text-shadow:0 0 5px gold;
+}

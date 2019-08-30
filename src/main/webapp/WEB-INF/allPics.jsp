@@ -7,35 +7,33 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/js/script.js"></script>
 	<link rel="stylesheet" href="/css/style.css"/>
+	<link rel="stylesheet" href="/css/style2.css"/>
 	<title>Jelligrapher</title>
 </head>
 <body>
+	<div class="header">Welcome To Our Photograph Section!</div>
 	<div class="images">
-	<!-- <div class="image"> -->
-				<%-- <div class="vote_bar">
-					<div class="vote_fill"></div>
-				</div>
-				<div class="post">
-					<p><c:out value="${picture}"/></p>
-				</div>
-				<a data-photo-id="${image.id}" href="#" class="like_button neutral">Like</a>
-				</div> --%>
 		<c:forEach var="picture" items="${pictures}">
 			<div class="image">
 				<div class="vote_bar">
-					<div class="vote_fill"></div>
+					<div class="vote_fill" style="width:${picture.likes}%"></div>
 				</div>
-				<img src="${picture.url}" width=200>
-				<div class="post">
-					<p><c:out value="${picture}"/></p>
+				<div class="pic_div">
+					<img src="${picture.url}">
 				</div>
-				<a data-photo-id="${picture.id}" href="#" class="like_button neutral">Like</a>
+				<div class="wrapper">
+						<a href="javascript:void(0);" data-photo-id="${picture.id}" class="like_button neutral">
+					    <i class="material-icons not-liked bouncy">favorite_border</i>
+					    <i class="material-icons is-liked bouncy">favorite</i>
+				    	<span class="like-overlay"></span>
+					</a>
+				</div>
 			</div>
 		</c:forEach>
 	</div>
-	<div>This page is loading correctly</div>
 </body>
 </html>
