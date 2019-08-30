@@ -64,7 +64,7 @@ public class EventCtrl {
 	}
 	
 	@GetMapping("/events/{id}")
-	public String showOneEvent(@PathVariable("id") Long id, Model model, HttpSession session, @ModelAttribute("picture") Picture pic) {
+	public String showOneEvent(@PathVariable("id") Long id, Model model, HttpSession session, @ModelAttribute("picture") Picture pic, @ModelAttribute("event") Event event) {
 		Long userId = (Long) session.getAttribute("userId");
 		User u = uS.findUserById(userId);
 		model.addAttribute("user", u);
@@ -73,7 +73,7 @@ public class EventCtrl {
 	}
 	
 	@PutMapping("/events/{id}/edit")
-	public String editEvent(@PathVariable("id") Long id, @ModelAttribute("eventObj") Event event) {
+	public String editEvent(@PathVariable("id") Long id, @ModelAttribute("event") Event event) {
 		eS.createEvent(event);
 		return "redirect:/events/" + id;
 	}
@@ -89,4 +89,8 @@ public class EventCtrl {
 		return "redirect:/search/" + tag;
 	}
 	
+	@GetMapping("/announcements")
+	public String announcements() {
+		return "announcements.jsp";
+	}
 }
