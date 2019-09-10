@@ -27,13 +27,21 @@ body{
 	width:20%;
 	display:inline-block;
 	margin-left:20%;
-	margin-bottom:2%;
+	margin-bottom:7%;
 	background-color:white;
 }
+
+.photo_name{
+	font-weight:bold;
+	font-size:20px;
+	margin-left:35%;
+}
+
 .image img{
 	width:85%;
-	padding:20px;
-	padding-left:23px;
+	padding-right:15px;
+	padding-left:15px;
+	padding-top:10px;
 }
 
 .pic_div{
@@ -156,9 +164,9 @@ body, .message, .form, form {
   flex-direction: column;
 }
 body {
-  height: 100vh;
+  height: 100%;
   font-family: 'Source Sans Pro', sans-serif;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .container {
