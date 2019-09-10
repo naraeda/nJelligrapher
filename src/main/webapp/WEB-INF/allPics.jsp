@@ -26,6 +26,7 @@
 				<div class="pic_div">
 					<img src="${picture.url}">
 				</div>
+				<p class="photo_name">Picture</p>
 				<div class="wrapper">
 						<a href="javascript:void(0);" data-photo-id="${picture.id}" class="like_button neutral">
 					    <i class="material-icons not-liked bouncy">favorite_border</i>
