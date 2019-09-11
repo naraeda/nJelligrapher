@@ -66,8 +66,8 @@ public class EventCtrl {
 	@GetMapping("/events/{id}")
 	public String showOneEvent(@PathVariable("id") Long id, Model model, HttpSession session, @ModelAttribute("picture") Picture pic, @ModelAttribute("event") Event event) {
 		Long userId = (Long) session.getAttribute("userId");
-		User u = uS.findUserById(userId);
-		model.addAttribute("user", u);
+//		User u = uS.findUserById(userId);
+		model.addAttribute("user", userId);
 		model.addAttribute("event", eS.getEventById(id));
 		return "/eventDetail.jsp";
 	}
