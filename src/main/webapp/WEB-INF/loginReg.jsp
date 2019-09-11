@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/css/style.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/script.js"></script>
-<title>Welcome to Jelligrapher!</title>
+<title>Welcome to nJelligrapher!</title>
 </head>
 <body>
 	<div class="container">

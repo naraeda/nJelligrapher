@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/dashboard.css">
-<title>Jelligrapher</title>
+<title>nJelligrapher</title>
 </head>
 <body>
 	<h1>This week's winner is: </h1>
