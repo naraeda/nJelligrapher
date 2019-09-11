@@ -30,9 +30,9 @@ public class S3ServicesImpl implements S3Services{
 
 	    try {
 
-	            System.out.println("Downloading an object");
+//	            System.out.println("Downloading an object");
 	            S3Object s3object = s3client.getObject(new GetObjectRequest(bucketName, keyName));
-	            System.out.println("Content-Type: "  + s3object.getObjectMetadata().getContentType());
+//	            System.out.println("Content-Type: "  + s3object.getObjectMetadata().getContentType());
 	            Utility.displayText(s3object.getObjectContent());
 	            logger.info("===================== Import File - Done! =====================");
 
