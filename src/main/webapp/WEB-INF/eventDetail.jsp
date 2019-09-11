@@ -11,29 +11,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="/favicon.ico"/>
 <title>Jelligrapher</title>
-
-<!-- location -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
-<style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 50%;
-        width: 50%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-
-<!-- location -->
-
 </head>
 <body>
 <div class="container">
@@ -129,6 +106,7 @@
 											<form:option value="WY">WY</form:option>
 										</form:select>				
 								</p>
+								<form:hidden path="host" value="${user.id}"></form:hidden>
 								<button >Edit</button>
 							</form:form>
 						</div>
@@ -181,75 +159,5 @@
 </div>
 	
 </div>
-
-<!-- map -->
-
-<%-- 	<h2><p id="cityLocation">${ event.city }</p></h2>
-	
-
-    <div id="map"></div>
-    <script>
-    	
-      var map;
-      var service;
-      var infowindow;
-	var lat;
-	var lng;
-
-		
-
-      function initMap() {
-  	
-			var location = $('#cityLocation').text();
-			$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?&address='+ location + '&key=AIzaSyCF-SC0scu2ZMqEbTYJ28BwlFQFIiNh8rc', function(data) {
-				lat = data.results[0].geometry.location.lat;
-				lng = data.results[0].geometry.location.lng;
-				console.log(lat, lng);
-				})
-			
-        var city = new google.maps.LatLng(lat, lng);
-
-        infowindow = new google.maps.InfoWindow();
-
-        map = new google.maps.Map(
-            document.getElementById('map'), {center: city, zoom: 15});
-
-        var request = {
-          query: location,
-          fields: ['name', 'geometry'],
-        };
-
-        service = new google.maps.places.PlacesService(map);
-
-        service.findPlaceFromQuery(request, function(results, status) {
-          if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-              createMarker(results[i]);
-            }
-
-            map.setCenter(results[0].geometry.location);
-          }
-        });
-      }
-
-      function createMarker(place) {
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF-SC0scu2ZMqEbTYJ28BwlFQFIiNh8rc&libraries=places&callback=initMap" async defer></script>
-
- --%>
-
-
-<!-- map -->
-
 </body>
 </html>
