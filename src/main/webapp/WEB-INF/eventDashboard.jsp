@@ -9,19 +9,17 @@
 <meta charset="UTF-8">
 
 <link rel="stylesheet" href="/css/dashboard.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>nJelligrapher</title>
 </head>
 <body>
 <div class="center">
 	<h1>Welcome, <c:out value="${user.firstName}"/> <i class="fa fa-heart" aria-hidden="true"></i></h1>
-	<a href="/announcements"><button type="button" class="btn btn-info btn-sm">Announcements</button></a>
-	<a href="/events/pictures"><button type="button" class="btn btn-info btn-sm">View Submitted Pictures</button></a>
+	<a href="/announcements"><button type="button" >Announcements</button></a>
+	<a href="/events/pictures"><button type="button" >View Submitted Pictures</button></a>
+	<a href="#popup1"><button>Add An Event</button></a>
 	
-	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add An Event</button>
-	
-	<h3>Events near you: </h3>
+	<h3>Events near you </h3>
 
 	<table>
 		<thead>
@@ -42,16 +40,6 @@
 			<td><c:out value="${e.host.firstName}"/> <c:out value="${e.host.lastName}"/></td>
 			<td>
 			
-			<%-- <c:if test="${e.host.id == user.id}">
-				<a href="/events/${e.id}/edit"><button>Edit</button></a>
-				
-				<form action="/events/${e.id}" method="post">
-				    <input type="hidden" name="_method" value="delete">
-					<button>Delete</button>
-				</form>
-			</c:if> --%>
-			
-			<%-- <c:if test="${e.host.id != user.id}"> --%>
 				<c:set var="attending" value="null" />
 			
 				<c:forEach items="${e.users}" var="u">
@@ -75,13 +63,10 @@
 					    
 						<input type="hidden"  name="user" value="${user.id}">
 						<input type="hidden"  name="event" value="${e.id}">
-					    Joining <button>Cancel</button>
+					    <p>Joining <button>Cancel</button></p>
 					</form>
 					
 				</c:if>
-				
-			<%-- </c:if> --%>
-				
 
 			</td>
 		</tr>
@@ -89,7 +74,7 @@
 		</tbody>
 	</table>
 	
-	<h3>Events in other locations: </h3>
+	<h3>Events in other locations </h3>
 	<table>
 		<thead>
 			<tr>
@@ -108,14 +93,7 @@
 			<td><c:out value="${e.city}"/>, <c:out value="${e.state}"/></td>
 			<td><c:out value="${e.host.firstName}"/> <c:out value="${e.host.lastName}"/></td>
 			<td>
-			<%-- <c:if test="${e.host.id == user.id}">
-				<a href="/events/${e.id}/edit"><button>Edit</button></a>
-				<form action="/events/${e.id}" method="post">
-				    <input type="hidden" name="_method" value="delete">
-					<button>Delete</button>
-				</form>
-			</c:if> --%>
-			<%-- <c:if test="${e.host.id != user.id}"> --%>
+
 				<c:set var="attending" value="null" />
 			
 				<c:forEach items="${e.users}" var="u">
@@ -138,10 +116,9 @@
 				    <input type="hidden" name="_method" value="delete">
 					<input type="hidden"  name="user" value="${user.id}">
 					<input type="hidden"  name="event" value="${e.id}">
-				    Joining <button>Cancel</button>
+				    <p>Joining <button>Cancel</button></p>
 				</form>
 				</c:if>
-		<%-- 	</c:if> --%>
 			</td>
 		</tr>
 	</c:forEach> 
@@ -149,16 +126,14 @@
 	</table>
 	
 	
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Add An Event</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
+   <div class="add">
+      <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Add an event: </h2>
+                    <hr>
+                    <br>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
 			<p><form:errors path="event.*"/></p>
 			<form:form action="/events" method="POST" modelAttribute="event">
 				<p>
@@ -171,7 +146,7 @@
 				</p>
 				<p>
 					<form:label path="description">Description: </form:label>
-					<form:input type="text" placeholder="Tell us about the event!" path="description"/>
+					<form:textarea type="text" rows="4" cols="50" placeholder="Tell us about the event!" path="description"/>
 				</p>
 				<p>
 					<form:label path="city">Location: </form:label>
@@ -232,21 +207,22 @@
 						</form:select>				
 				</p>
 				<form:hidden path="host" value="${user.id}"></form:hidden>
+				<br>
 				<hr>
+				<br>
 				<button id="add" class="btn btn -default">Add Event</button>
         		<button type="button" id="cancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			</form:form>
       </div>
+       </div>
     </div>
+            
 
   </div>
-</div>
-</div>
+  </div>
 <br>
-<a href="logout"><button type="button" class="btn btn-info btn-sm">Log Out</button></a>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<div class="logout">
+<a href="logout"><button type="button">Log Out</button></a>
+</div>
 </body>
 </html>
