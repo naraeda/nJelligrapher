@@ -7,17 +7,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/announcements.css">
 <title>nJelligrapher</title>
 </head>
 <body>
-	<h1>The WINNER of this week is..... </h1>
-	<h1 style="color: gold;">Jeff with his Mew!!!!!!!!</h1>
-	<div><img src="${pictures.url}"></div>
-	<h2>The winner will receive his picture with frame sent to him. </h2>
-	<h2>Please e-mail one of the admin your home address to receive it.</h2>
-	<h3>Come back next week to participate again and we're looking forward to see your awesome photos!</h3>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<h1>The Winner is..... </h1>
+	<h2 class="title">" <c:out value="${picture.title}"/> "</h2>
+	<h2>Posted By: <c:out value="${picture.user.firstName}"/> <c:out value="${picture.user.lastName}"/></h2>
+	<h2>Event Name: <a href="events/${picture.event.id}"><c:out value="${picture.event.name}"/></a></h2>
+	<h2><a href="events/${picture.event.id}"><img src="${picture.url}"></a></h2>
+
+	
+	<p>The winner will receive a copy of the winning picture with a frame. </p>
+	<p>Please contact our admins to receive a copy of the picture.</p>
+	<p>Come back next week to participate again. We're looking forward to see your awesome photos!</p>
+	
+	
+	
+	
+	<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+	<br><br>
 	<hr>
 	<br>
 	<p>*If you have any questions or concerns, feel free to contact us at: </p>

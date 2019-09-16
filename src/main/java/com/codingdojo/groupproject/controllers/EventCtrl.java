@@ -1,5 +1,7 @@
 package com.codingdojo.groupproject.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -21,6 +23,7 @@ import com.codingdojo.groupproject.models.Picture;
 import com.codingdojo.groupproject.models.User;
 import com.codingdojo.groupproject.models.UserEvent;
 import com.codingdojo.groupproject.services.EventServ;
+import com.codingdojo.groupproject.services.PictureServ;
 import com.codingdojo.groupproject.services.UserServ;
 
 @Controller 
@@ -31,6 +34,9 @@ public class EventCtrl {
 	
 	@Autowired
 	private UserServ uS; 
+	
+	@Autowired
+	private PictureServ pS;
 	
 	 @GetMapping("/events")
 	    public String home(@ModelAttribute("event") Event event, HttpSession session, Model model, RedirectAttributes rA) {
@@ -74,7 +80,7 @@ public class EventCtrl {
 	
 	@PutMapping("/events/{id}/edit")
 	public String editEvent(@PathVariable("id") Long id, @ModelAttribute("event") Event event) {
-		eS.createEvent(event);
+		eS.updateEvent(event);
 		return "redirect:/events/" + id;
 	}
 	
@@ -90,7 +96,19 @@ public class EventCtrl {
 	}
 	
 	@GetMapping("/announcements")
-	public String announcements() {
+	public String announcements(Model model) {
+		List<Picture> allPics= pS.findAll();
+		
+		int max = 0;
+		for (int i =0; i<allPics.size();i++) {
+			if (allPics.get(i).getLikes() > max) {
+				max = allPics.get(i).getLikes();
+				model.addAttribute("picture", allPics.get(i));
+			}
+		}
+		
+		model.addAttribute("pictures", allPics);
+		
 		return "announcements.jsp";
 	}
 }
