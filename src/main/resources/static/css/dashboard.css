@@ -17,7 +17,7 @@ a{
 }
 table{
 	margin:auto;
-	width: 750px;
+	width: 950px;
 	border-collapse: collapse;
 	text-align:left;
 }
@@ -40,7 +40,7 @@ table a{
 	color: LightSeaGreen;
 }
 table a:hover{
-	color: teal;
+	color: teal; 
 }
 h1{
 	font-family: cursive;
