@@ -205,8 +205,8 @@
 			</form:select>
         </p>
         <p>
-        		<form:label path="tags">Tags:</form:label>
-        		<input type="text" name="tags"/>
+     		<label>Tags:</label>
+     		<input type="text" name="tag"/>
         </p>
     <form:hidden path="user" value="${user.id}"></form:hidden>
     <form:hidden path="event" value="${event.id}"></form:hidden>
