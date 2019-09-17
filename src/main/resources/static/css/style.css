@@ -17,7 +17,7 @@ body{
 	margin-top:2%;
 }
 
-.vote_fill{
+#progress{
 	width:0%;
 	height:15px;
 	background:linear-gradient(white, gold,gold, white);

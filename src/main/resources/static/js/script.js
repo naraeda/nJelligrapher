@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$(".like_button").click(function(){
 		console.log("hello")
+		var id = $(this).attr("data-photo-id")
 		var likeClass = document.getElementsByClassName("neutral")
 		var likedOrNot;
 		if(likeClass){
@@ -13,6 +14,8 @@ $(document).ready(function(){
 		}
 		console.log("hello");
 		var url = "/likes/" + $(this).attr("data-photo-id");
+		var vote = ".vote_fill_" + id
+		console.log(vote)
 		$.ajax({
 			method: "POST",
 			url: url,
@@ -25,9 +28,10 @@ $(document).ready(function(){
 			console.log(res)
 			console.log("hello");
 			if(likes >= 100){
-				$(".vote_fill").css("width", "100%");
+				$(vote).css("width", "100%");
 			}else{
-			$(".vote_fill").css("width", `${likes}%`);
+				console.log("i AM IN HERE")
+			$(vote).css("width", `${likes}%`);
 			}
 		})
 		

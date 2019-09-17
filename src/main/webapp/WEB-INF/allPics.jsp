@@ -21,7 +21,7 @@
 		<c:forEach var="picture" items="${pictures}">
 			<div class="image">
 				<div class="vote_bar">
-					<div class="vote_fill" style="width:${picture.likes}%"></div>
+					<div id="progress" class="vote_fill_${picture.id}" style="width:${picture.likes}%"></div>
 				</div>
 				<div class="pic_div">
 					<img src="${picture.url}">
