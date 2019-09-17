@@ -1,19 +1,19 @@
 *{
 	padding:0px;
 	margin:0px;
-	color: white;
 	font-family: arial;
 }
 body{
 	padding: 10px;
-	background:linear-gradient(Turquoise,LightSeaGreen,DarkCyan,LightSeaGreen,Turquoise);
+	
 	text-align:center;
 }
 a{
 	text-decoration: none;
+	color: blue;
 }
 h1{
-	font-family: cursive;
+
 	font-size: 45px;
 	text-shadow:
 	    1px  1px 1px gold,
@@ -24,7 +24,7 @@ h1{
 .title{
 	color: gold;
 	font-size: 40px;
-	font-family: cursive;
+
 	text-shadow:
 	    1px  1px 1px white,
 	    1px -1px 1px white,
