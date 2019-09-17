@@ -42,4 +42,10 @@ public class EventServ {
 		eR.deleteById(id);
 	}
 	
+	public Event updateEvent(Event event) {
+		Event exisitingE = this.getEventById(event.getId());
+		event.setUsers(exisitingE.getUsers());
+		return eR.save(event);
+	}
+	
 }

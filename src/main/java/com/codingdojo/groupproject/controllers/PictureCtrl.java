@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,30 +17,37 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.codingdojo.groupproject.models.Picture;
+import com.codingdojo.groupproject.models.PictureTag;
+import com.codingdojo.groupproject.models.Tag;
 import com.codingdojo.groupproject.s3Services.UploadFile;
 import com.codingdojo.groupproject.services.PictureServ;
+import com.codingdojo.groupproject.services.TagServ;
 
 @Controller
 public class PictureCtrl {
-	private final PictureServ pS;
 	
-	public PictureCtrl(PictureServ pS) {
-		this.pS = pS;
-	}
+	@Autowired
+	private PictureServ pS;
+
+	@Autowired
+	private TagServ tS;
 	
 //	@PostMapping("/events/pictures")
 //	public String createPic(@Valid @ModelAttribute("picture") Picture pic, BindingResult result) {
 //		return "redirect:/events/pictures";
 //	}
 	@PostMapping("/test")
-	public String testUpload(@RequestParam("imgUrl") MultipartFile file, @Valid @ModelAttribute("picture") Picture pic, BindingResult result){
+	public String testUpload(@RequestParam("imgUrl") MultipartFile file, @Valid @ModelAttribute("picture") Picture pic, BindingResult result, @RequestParam("tag") List<String> tag, Model model){
 		
 		if(result.hasErrors()) {
 			return "redirect:/events";
 		}
+		
 		else {
 			System.out.println("---URL");
 			UploadFile s3Uploader = new UploadFile();
+			
+			Picture newPics = pS.createPicture(pic);
 			
 			try {
 				System.out.println();
@@ -52,6 +60,25 @@ public class PictureCtrl {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				
+				tag.forEach(tagName -> {
+					Tag currentTag = pS.getTagByName(tagName);
+					
+				if(currentTag == null) {
+					Tag newTag = new Tag();
+					newTag.setName(tagName.trim());
+					Tag createdTag = pS.createTag(newTag);
+					PictureTag pT = new PictureTag();
+					pT.setPicture(newPics);
+					pT.setTag(createdTag);
+					pS.addTagToPic(pT);
+				} else {
+					PictureTag pT = new PictureTag();
+					pT.setPicture(newPics);
+					pT.setTag(currentTag);
+					pS.addTagToPic(pT);
+				}
+				});
 			}
 			
 			return "redirect:/events/pictures";
