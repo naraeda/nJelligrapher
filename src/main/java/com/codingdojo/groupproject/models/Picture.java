@@ -1,6 +1,7 @@
 package com.codingdojo.groupproject.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -36,17 +39,8 @@ public class Picture {
     private String state;
     
     @Max(value=100)
-  private int likes;
-    
-    public String getUrl() {
-		return url;
-	}
+    private int likes;
 
-
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
 
 	private String url;
 
@@ -69,7 +63,13 @@ public class Picture {
 	@JoinColumn(name="event_id")
     private Event event;
 	
-	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+		name = "pictures_tags",
+		joinColumns = @JoinColumn(name = "picture_id"),
+		inverseJoinColumns = @JoinColumn(name = "tag_id")
+	)
+	private List<Tag> tags;
 
 	public Long getId() {
 		return id;
@@ -177,17 +177,26 @@ public class Picture {
 	}
 
 
+	public List<Tag> getTags() {
+		return tags;
+	}
 
-//	public List<Tag> getTags() {
-//		return tags;
-//	}
-//
-//
-//
-//	public void setTags(List<Tag> tags) {
-//		this.tags = tags;
-//	}
 
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+    
+    public String getUrl() {
+		return url;
+	}
+
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 
 	@PrePersist
