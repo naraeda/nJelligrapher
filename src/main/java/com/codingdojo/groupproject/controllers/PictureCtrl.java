@@ -47,20 +47,14 @@ public class PictureCtrl {
 			System.out.println("---URL");
 			UploadFile s3Uploader = new UploadFile();
 			
-			Picture newPics = pS.createPicture(pic);
-			
 			try {
 				System.out.println();
 				ObjectMetadata metaData = new ObjectMetadata();
 				metaData.setContentType("image/png");
 				String imgUrl = s3Uploader.Upload("eventsimg132", file.getOriginalFilename(), file.getInputStream(), metaData);
 				pic.setUrl(imgUrl);
-				pS.createPicture(pic);
 				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				
+				Picture newPics = pS.createPicture(pic);
 				tag.forEach(tagName -> {
 					Tag currentTag = pS.getTagByName(tagName);
 					
@@ -79,6 +73,11 @@ public class PictureCtrl {
 					pS.addTagToPic(pT);
 				}
 				});
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
 			}
 			
 			return "redirect:/events/pictures";
