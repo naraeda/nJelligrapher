@@ -20,9 +20,13 @@ public class PictureRestCtrl {
 	public int addLike(@PathVariable("id") Long picId,@RequestParam("isLiked") int isLiked) {
 		Picture picture = pS.findById(picId);
 		int likes = picture.getLikes();
-		likes+=isLiked;
-		picture.setLikes(likes);
-		pS.createPicture(picture);
-		return picture.getLikes();
+		if(likes >= 100) {
+			return picture.getLikes();
+		}else {
+			likes+=isLiked;
+			picture.setLikes(likes);
+			pS.createPicture(picture);
+			return picture.getLikes();
+		}
 	}
 }

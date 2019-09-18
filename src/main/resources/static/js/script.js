@@ -1,18 +1,16 @@
 $(document).ready(function(){
 	$(".like_button").click(function(){
-		console.log("hello")
 		var id = $(this).attr("data-photo-id")
 		var likeClass = document.getElementsByClassName("neutral")
 		var likedOrNot;
 		if(likeClass){
 			likedOrNot = 1;
-			$(".likeButton").removeClass("neutral");
-			$(".likeButton").addClass("liked");
+			$(this).hide();
 		}else{
 			
 			likedOrNot = -1;
 		}
-		console.log("hello");
+
 		var url = "/likes/" + $(this).attr("data-photo-id");
 		var vote = ".vote_fill_" + id
 		console.log(vote)
@@ -26,11 +24,9 @@ $(document).ready(function(){
 		.done(function(res){
 			var likes = res;
 			console.log(res)
-			console.log("hello");
 			if(likes >= 100){
 				$(vote).css("width", "100%");
 			}else{
-				console.log("i AM IN HERE")
 			$(vote).css("width", `${likes}%`);
 			}
 		})
