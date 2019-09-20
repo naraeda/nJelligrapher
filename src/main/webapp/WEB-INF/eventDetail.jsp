@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="/favicon.ico"/>
 <title>nJelligrapher</title>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
 </head>
 <body>
 <div class="container">
@@ -220,13 +220,19 @@
 	
 	<!--  -->
 </div>
-	<div class="map">
 	
 <!-- map -->
-<%-- 	<h2><p id="cityLocation">${ event.city }</p></h2>
+
+	<div class="map">
+
+<%-- <h2><p id="cityLocation">${ event.city }</p></h2>
     <div id="map"></div>
+
+
+	</div>
     <script>
-    	
+    
+  
       var map;
       var service;
       var infowindow;
@@ -240,31 +246,32 @@
 				lat = data.results[0].geometry.location.lat;
 				lng = data.results[0].geometry.location.lng;
 				console.log(lat, lng);
-				})
+				 var city = new google.maps.LatLng(lat, lng);
+
+			        infowindow = new google.maps.InfoWindow();
+
+			        map = new google.maps.Map(
+			            document.getElementById('map'), {center: city, zoom: 15});
+
+			        var request = {
+			          query: location,
+			          fields: ['name', 'geometry'],
+			        };
+
+			        service = new google.maps.places.PlacesService(map);
+
+			        service.findPlaceFromQuery(request, function(results, status) {
+			          if (status === google.maps.places.PlacesServiceStatus.OK) {
+			            for (var i = 0; i < results.length; i++) {
+			              createMarker(results[i]);
+			            }
+
+			            map.setCenter(results[0].geometry.location);
+			          }
+			        });
+						})
 			
-        var city = new google.maps.LatLng(lat, lng);
-
-        infowindow = new google.maps.InfoWindow();
-
-        map = new google.maps.Map(
-            document.getElementById('map'), {center: city, zoom: 15});
-
-        var request = {
-          query: location,
-          fields: ['name', 'geometry'],
-        };
-
-        service = new google.maps.places.PlacesService(map);
-
-        service.findPlaceFromQuery(request, function(results, status) {
-          if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-              createMarker(results[i]);
-            }
-
-            map.setCenter(results[0].geometry.location);
-          }
-        });
+       
       }
 
       function createMarker(place) {
@@ -279,9 +286,9 @@
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF-SC0scu2ZMqEbTYJ28BwlFQFIiNh8rc&libraries=places&callback=initMap" async defer></script>
-  --%><!-- map -->
-	</div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF-SC0scu2ZMqEbTYJ28BwlFQFIiNh8rc&callback=initMap" async defer></script> --%>
+    
 </div>
+
 </body>
 </html>
