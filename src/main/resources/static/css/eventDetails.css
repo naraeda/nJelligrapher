@@ -200,17 +200,24 @@ h4{
   /*  */
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 50%;
-        width: 50%;
-      }
-
-.detailTitle{
-	display: inline-block;
+#map {
+     height: 50%;
+     width: 50%; 
+}
+      
+.map{
+	display:inline-block;
+	width: 150px;
 }
 
-.but2{
+ .detailTitle{
 	display: inline-block;
+	width: 80%;
+} 
+
+ .but2{
+	display: inline-block;
+	width: 200px;
 	padding: 0px;
 	margin: 0px;
-}
+} 
