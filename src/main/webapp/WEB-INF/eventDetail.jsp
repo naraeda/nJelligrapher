@@ -16,7 +16,8 @@
 </head>
 <body>
 <div class="container">
-<h1>Details about "<c:out value="${event.name}"/>!"</h1>
+<h1 class="detailTitle">Details about "<c:out value="${event.name}"/>!"</h1><a class="but2" href="/events"><button>Back to Dashboard</button></a>
+
 <div class="leftContent">
 	<h3>Host: <c:out value="${event.host.firstName}"/> <c:out value="${event.host.lastName}"/></h3>
 	<h3>Date: <fmt:formatDate value="${event.date}" pattern="MMMM dd, yyyy"/></h3>
