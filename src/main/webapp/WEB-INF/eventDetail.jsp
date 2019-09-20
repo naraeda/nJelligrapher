@@ -11,12 +11,16 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="/favicon.ico"/>
 <title>nJelligrapher</title>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ -->
 </head>
 <body>
 <div class="container">
-<h1 class="detailTitle">Details about "<c:out value="${event.name}"/>!"</h1><a class="but2" href="/events"><button>Back to Dashboard</button></a>
+<div>
+
+<h1 class="detailTitle">Details about "<c:out value="${event.name}"/>!"</h1>
+<a class="but2" href="/events"><button>Back to Dashboard</button></a>
+</div>
 
 <div class="leftContent">
 	<h3>Host: <c:out value="${event.host.firstName}"/> <c:out value="${event.host.lastName}"/></h3>
@@ -124,8 +128,8 @@
 		</form>
 	</div>
  	<div class="search">
-	<form action="/search" method="post" >
-		<input type="search" name="tag" placeholder="search tags here..">
+	<form action="/events/search" method="post" >
+		<input type="search" name="name" placeholder="search tags here..">
 		<button>Search Tags</button>
 	</form>
 
@@ -216,12 +220,10 @@
 	
 	<!--  -->
 </div>
+	<div class="map">
 	
 <!-- map -->
-<%-- 
-	<h2><p id="cityLocation">${ event.city }</p></h2>
-	
-
+<%-- 	<h2><p id="cityLocation">${ event.city }</p></h2>
     <div id="map"></div>
     <script>
     	
@@ -230,9 +232,7 @@
       var infowindow;
 	var lat;
 	var lng;
-
 		
-
       function initMap() {
   	
 			var location = $('#cityLocation').text();
@@ -280,12 +280,8 @@
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF-SC0scu2ZMqEbTYJ28BwlFQFIiNh8rc&libraries=places&callback=initMap" async defer></script>
-
-
- --%>
-
-<!-- map -->
-	
+  --%><!-- map -->
+	</div>
 </div>
 </body>
 </html>
