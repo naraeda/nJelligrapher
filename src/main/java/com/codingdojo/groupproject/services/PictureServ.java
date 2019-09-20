@@ -48,6 +48,16 @@ public class PictureServ {
 		}
 	}
 	
+	public List<Picture> searchTag(String name){
+		Optional<Tag> optionalTag = tR.findByName(name);
+		if(optionalTag.isPresent()) {
+			return pRepo.findByTags(optionalTag);
+			
+		} else {
+			return null;
+		}
+	}
+	
 	//Tags
 	
 	public Tag createTag(Tag t) {

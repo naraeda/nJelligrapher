@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -90,5 +91,18 @@ public class PictureCtrl {
 		model.addAttribute("pictures",pictures);
 		return "allPics.jsp";
 	}
+	
+	@PostMapping("/events/search")
+	public String searchTag(@RequestParam("name") String name) {
+		return "redirect:/events/search/" + name;
+	}
+	
+	@GetMapping("/events/search/{name}")
+	public String getTag(@PathVariable("name") String name, Model model) {
+		List<Picture> pictures = pS.searchTag(name);
+		model.addAttribute("pictures", pictures);
+		return "/searchList.jsp";
+	}
+	
 	
 }
