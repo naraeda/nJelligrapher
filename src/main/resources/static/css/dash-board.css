@@ -67,7 +67,9 @@ a{
 	color: #5cb0ff;
 }
 table{
-	margin: auto;
+	margin-top: 30px;
+	margin-right: 70px;
+	margin-left: 70px;
 	padding: 10px;
 	display:inline-block;
 	width: 450px;
@@ -78,16 +80,17 @@ table{
 }
 table p{
 	color: grey;
-	margin-left: 15px;
+	/* margin-left: 15px; */
 }
 th {
 	width: 400px;
 	padding: 5px;
  	color: #009afc;
+    padding-left: 0px;
 }
 td {
 	border-bottom: 2px solid #acacac;
-	padding: 5px; 
+	padding: 5px 0px 10px 0px; 
 	width: 550px;
  	color: LightSeaGreen;
  	

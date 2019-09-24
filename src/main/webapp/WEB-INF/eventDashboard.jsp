@@ -45,7 +45,7 @@
 	<table>
 		<thead>
 			<tr>
-				<th> <h2>Events Near You:</h2> </th>
+				<th> <h2>Events Near You</h2> </th>
 			<!-- 	<th> Date </th>
 				<th> Location </th>
 				<th> Host </th>
@@ -101,7 +101,7 @@
 	<table>
 		<thead>
 			<tr>
-				<th> <h2>Other Events: </h2></th>
+				<th> <h2>Other Events </h2></th>
 			<!-- 	<th> Date </th>
 				<th> Location </th>
 				<th> Host </th>
@@ -243,6 +243,15 @@
             
 
   </div>
+  <br><br>
+<!--   <div class="footer">
+
+	<p>*If you have any questions or concerns, feel free to contact us: </p>
+
+	<h3><a href="mailTo:cherry2ney@gmail.com">Contact Narae</a> |
+	<a href="mailTo:elliezhao14@gmail.com"> Contact Ellie</a> |
+	<a href="mailTo:jeffhendricks00@gmail.com"> Contact Jeff</a></h3>
+	</div> -->
 
 <br>
 
