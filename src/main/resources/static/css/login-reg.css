@@ -171,8 +171,8 @@ body {
 }
 
 .container {
-  width: 700px;
-  height: 515px;
+  width: 900px;
+  height: 610px;
   background: white;
   position: relative;
   display: grid;
@@ -221,9 +221,9 @@ body {
   font-size: 40px;
   font-weight:bold;
   height: 50px;
-  color:Gold;
-  text-shadow:0 0 3px RoyalBlue;
-  font-family: 'Playfair Display', serif;
+  color:teal;
+  /* text-shadow:0 0 3px RoyalBlue; */
+  font-family: 'Playfair Display', sans-serif;
 }
 form {
   width: 70%;
@@ -233,7 +233,7 @@ form > * {
   margin: 10px;
 }
 form input {
-  width: 90%;
+  width: 100%;
   border: 0;
   border-bottom: 1px solid rgba(195, 195, 216, 0.5);
   font-size: 16px;
@@ -241,6 +241,47 @@ form input {
   color: teal;
   letter-spacing: 0.11em;
 }
+
+#emailInput{
+	width: 250px;
+}
+
+#emailLabel{
+	display: block;
+}
+
+#locLabel{
+	display: block;
+}
+
+#city5{
+	display: inline-block;
+	width: 195px;
+}
+
+#state5{
+	display: inline-block;
+	width: 50px;
+	font-size: 14px;
+}
+
+#pw1{
+   	margin-right: 2px;
+}
+
+#pw3{
+    margin-left: 10px;
+    width: 240px;
+}
+
+#email4{
+	display: block;
+}
+
+#email3{
+	width: 250px;
+}
+
 form input::placeholder {
   color: #c3c3d8;
   font-size: 10px;
@@ -252,27 +293,36 @@ form input:focus {
 }
 
 select{
-	background-color:gold;
-	color:teal;
-	width:100%;
+	/* background-color:gold; */
+	color:black;
+	width:20%;
 }
 .button {
   width: 100%;
   height: 30px;
   border: 0;
   outline: 0;
-  color: Black;
+  color: white;
   font-size: 15px;
-  font-weight: bold;
+  /* font-weight: bold; */
   position: relative;
   z-index: 3;
   letter-spacing: 2px;
-  background: linear-gradient(45deg, orange,gold, yellow);
-  font-family: 'Playfair Display', serif;
+  background: teal;
+  font-family: 'Playfair Display', sans-serif;
+  border-radius: 8px;
+}
+
+#loginBut{
+	width: 120px;
+}
+
+.signupfont{
+	font-family: sans-serif;
 }
 
 .signOne{
-	width:90%;
+	width:120px;
 }
 
 .button:hover {
@@ -282,5 +332,6 @@ select{
 @media (max-width: 750px) {
   .container {
     transform: scale(0.8);
+    
   }
 }
