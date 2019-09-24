@@ -23,26 +23,27 @@
   		</div>
 			    
     <div class="form form--signup">
-    <div class="form--heading">Sign Up</div>
+    <div class="form--heading">SIGN UP</div>
     <p><form:errors path="user.*"/></p>
 
     <form:form method="POST" action="/" modelAttribute="user" autocomplete="off">
         <p>
-            <form:label path="firstName">First Name:</form:label>
+            <form:label path="firstName">First Name</form:label>
             <form:input type="text" path="firstName"/>
         </p>
        	<p>
-            <form:label path="lastName">Last Name:</form:label>
+            <form:label path="lastName">Last Name</form:label>
             <form:input type="text" path="lastName"/>
         </p>
         <p>
-            <form:label path="email">Email:</form:label>
-            <form:input type="text" path="email"/>
+            <form:label id="emailLabel" path="email">Email</form:label>
+            
+            <form:input id="emailInput" type="text" path="email"/>
         </p>
         <p>
-            <form:label path="city">Location:</form:label>
-            <form:input type="text" path="city"/>
-            <form:select path="state" type="state">
+            <form:label id="locLabel" path="city">Location</form:label>
+            <form:input id="city5" type="text" path="city"/>
+            <form:select id="state5" path="state" type="state">
            		<form:option value="AL">AL</form:option>
 				<form:option value="AK">AK</form:option>
 				<form:option value="AR">AR</form:option>	
@@ -97,11 +98,11 @@
             </form:select>
         </p>
         <p>
-            <form:label path="password">Password:</form:label>
-            <form:password path="password"/>
+            <form:label id="pw1" path="password">Password</form:label>
+            <form:password id="pw1" path="password"/>
         </p>
-        <p>
-            <form:label path="passwordConfirmation">Password Confirmation:</form:label>
+        <p id="pw3">
+            <form:label path="passwordConfirmation">Password Confirmation</form:label>
             <form:password path="passwordConfirmation"/>
         </p>
         <button class="button signOne" type="submit">Sign Up!</button>
@@ -114,14 +115,14 @@
     <p><c:out value="${error2}"/></p>
     <form method="post" action="/login" autocomplete="off">
         <p>
-            <label for="email">Email</label>
-            <input type="email"  name="email"/>
+            <label id="email4" for="email">Email</label>
+            <input id="email3" type="email"  name="email"/>
         </p>
         <p>
             <label for="password">Password</label>
             <input type="password" name="password"/>
         </p>
-        <button class="button" type="submit">Login!</button>
+        <button class="button" id="loginBut" type="submit">Login!</button>
     </form>   
     </div> 
     </div>
