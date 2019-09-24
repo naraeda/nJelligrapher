@@ -27,16 +27,16 @@
 	</div>	
 </div>
 <div class="mainContent">
-		<h1><i class="fa fa-trophy" aria-hidden="true"></i> The winning picture is:  </h1>	
+		<h1 id="win"><i class="fa fa-trophy" aria-hidden="true"></i> The Winning Picture Is  </h1>	
 	<div class="left">
 		<h2><a href="events/${picture.event.id}"><img src="${picture.url}"></a></h2>
 	</div>
 	
 	<div class="right">	
-		<h2 class="title">" <c:out value="${picture.title}"/> "</h2>
-		<h2>Posted By: <c:out value="${picture.user.firstName}"/> <c:out value="${picture.user.lastName}"/></h2>
-		<h2>Total likes: ${picture.likes} </h2>
-		<h2>Event Name: <a href="events/${picture.event.id}"><c:out value="${picture.event.name}"/></a></h2>
+		<h2 class="title"><c:out value="${picture.title}"/></h2>
+		<h3>Posted By <c:out value="${picture.user.firstName}"/> <c:out value="${picture.user.lastName}"/></h3>
+		<h3>Total likes ${picture.likes} </h3>
+		<h3>Event Name is <a href="events/${picture.event.id}"><c:out value="${picture.event.name}"/></a></h3>
 	<br>
 	<p>*The winner will receive a copy of the winning picture with a frame. </p>
 	<p>*Please contact our admins to receive a copy of the picture.</p>
@@ -48,7 +48,7 @@
 	<br>
 	<p>*If you have any questions or concerns, feel free to contact us at: </p>
 
-		<h3><button><a href="mailTo:cherry2ney@gmail.com">Contact Narae</a></button><button><a href="mailTo:elliezhao14@gmail.com"> Contact Ellie</a></button><button><a href="mailTo:jeffhendricks00@gmail.com"> Contact Jeff</a></button></h3>
+		<h3><button><a id="but" href="mailTo:cherry2ney@gmail.com">Contact Narae</a></button><button><a id="but" href="mailTo:elliezhao14@gmail.com"> Contact Ellie</a></button><button><a id="but" href="mailTo:jeffhendricks00@gmail.com"> Contact Jeff</a></button></h3>
 	
 
 

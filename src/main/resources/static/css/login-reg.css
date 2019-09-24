@@ -313,6 +313,10 @@ select{
   border-radius: 8px;
 }
 
+#signup{
+	margin-bottom: 13px;
+}
+
 #loginBut{
 	width: 120px;
 }
