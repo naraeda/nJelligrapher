@@ -41,12 +41,15 @@
 		<h3><i class="fa fa-calendar-o" aria-hidden="true"></i> Date: <fmt:formatDate value="${event.date}" pattern="MMMM dd, yyyy"/></h3>
 		<h3><i class="fa fa-map-marker" aria-hidden="true"></i> Location: <c:out value="${event.city}"/>, <c:out value="${event.state}"/></h3>
 		<h3><i class="fa fa-info-circle" aria-hidden="true"></i> Description: <c:out value="${event.description}"/></h3>
+		
+		<c:if test="${event.host.id == user.id}">
 		<div class="box">
 	         <a class="button" href="#edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
 	    </div>
 	            <div id="edit" class="overlay">
 	                <div class="popup">
-	                    <h2>Edit the event: </h2>
+	                    <h2>Edit the event </h2>
+	                   <hr>
 	                    <a class="close" href="#">&times;</a>
 	                    <div class="content">
 	                            
@@ -55,21 +58,22 @@
 								<form:form action="/events/${event.id}/edit" method="post" modelAttribute="event">
 									<input type="hidden" name="_method" value="put">
 									<p>
-										<form:label path="name">Name: </form:label>
+										<form:label path="name">Name </form:label>
 										<form:input type="text" placeholder="Event Name" path="name"/>
 									</p>
 									<p>
-										<form:label path="date">Date: </form:label>
+										<form:label path="date">Date </form:label>
 										<form:input type="date" path="date"/>
 									</p>
 									<p>
-										<form:label path="description">Description: </form:label>
+										<form:label path="description">Description </form:label>
 										<form:textarea type="text" rows="4" cols="50" placeholder="Tell us about the event!" path="description"/>
 									</p>
 									<p>
-										<form:label path="city">Location: </form:label>
-										<form:input type="text" placeholder="City of event" path="city"/>
-										
+										<form:label path="city">Location </form:label>
+									</p>
+									<p>
+										<form:input id="location" type="text" placeholder="City of event" path="city"/>
 										<form:select path="state">
 												<form:option value="AL">AL</form:option>
 												<form:option value="AK">AK</form:option>
@@ -125,6 +129,7 @@
 											</form:select>				
 									</p>
 									<form:hidden path="host" value="${user.id}"></form:hidden>
+									<br><hr>
 									<button class="button" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
 								</form:form>
 							</div>
@@ -138,7 +143,9 @@
 					<button ><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
 				</form>
 			</div>
+			</c:if>
 		</div>
+		
 	
 	<!-- map starts -->
 	<div class="map">
@@ -209,7 +216,7 @@
 	 
 	 <div class="topRight">
 	
-		<h3>Attendees: </h3>
+		<h3>Attendees </h3>
 			<c:forEach var="attendee" items="${event.users}">
 				<p><c:out value="${attendee.firstName}"/> <c:out value="${attendee.lastName}"/> From <c:out value="${attendee.city}"/>, <c:out value="${attendee.state}"/><p> 
 			</c:forEach>
@@ -220,27 +227,26 @@
 <div class="bottom">
 
 	 <div class="bottomLeft">
-		<h3>Submit your pictures here: </h3>
+		<h2>Submit your pictures here </h2>
 		<p><form:errors path="photo.*"/></p>
 		<form:form method="POST" action="/test"  modelAttribute="picture" enctype="multipart/form-data">
 	        <p>
-	            <label for="imgUrl"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
+	            <label for="imgUrl"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image</label>
 	            <input type="file" name="imgUrl" class="fileinput"/>
 	        </p>
 	        <p>
-	            <form:label path="title"><i class="fa fa-align-justify" aria-hidden="true"></i> Title:</form:label>
+	            <form:label path="title"><i class="fa fa-align-justify" aria-hidden="true"></i> Title</form:label>
 	            <form:input type="text" path="title"/>
 	        </p>
 	        <p>
-	     		<label><i class="fa fa-tags" aria-hidden="true"></i> Tags:</label>
+	     		<label><i class="fa fa-tags" aria-hidden="true"></i> Tags</label>
 	     		<input type="text" name="tag"/>
 	        </p>
-	       	<p>
-	            <form:label path="city"><i class="fa fa-map-marker" aria-hidden="true"></i> City:</form:label>
-	            <form:input type="text" path="city"/>
-	        </p>
 	        <p>
-	            <form:label path="state"><i class="fa fa-map-marker" aria-hidden="true"></i> State:</form:label>
+	        	<form:label path="city"><i class="fa fa-map-marker" aria-hidden="true"></i> Location</form:label>
+	       	</p>
+	       	<p>
+	            <form:input id="location2" type="text" path="city"/>
 	                <form:select path="state">
 						<form:option value="AL">AL</form:option>
 						<form:option value="AK">AK</form:option>
@@ -303,7 +309,7 @@
 	</div>
 	
 	<div class="bottomRight">
-			<h3>All Submitted Pictures: </h3>
+			<h3>All Submitted Pictures </h3>
 			<c:forEach var="pic" items="${event.pictures}">
 				<div id="img">
 					<img src=<c:out value="${pic.url}"/>>
@@ -313,9 +319,6 @@
 	</div>
 </div>
 
-	
-	
-	
 </div>
 
 	<br>
