@@ -8,30 +8,48 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/announcements.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>nJelligrapher</title>
 </head>
 <body>
-	<h1>The Winner is..... </h1>
-	<h2 class="title">" <c:out value="${picture.title}"/> "</h2>
-	<h2>Posted By: <c:out value="${picture.user.firstName}"/> <c:out value="${picture.user.lastName}"/></h2>
-	<h2>Event Name: <a href="events/${picture.event.id}"><c:out value="${picture.event.name}"/></a></h2>
-	<h2><a href="events/${picture.event.id}"><img src="${picture.url}"></a></h2>
 
+<div class="header">
+	<h4><a href="/events"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Dashboard</a></h4>
+	<div class="search">
+		<form action="/events/search" method="post" >
+			<p><input id="search" type="search" name="name" placeholder="search tags here..">
+			<button><i class="fa fa-search" aria-hidden="true"></i> Search </button>
+			<p>
+		</form>
+	</div> 
+	<div class="logout">
+		<a href="logout">Log Out</a>
+	</div>	
+</div>
+<div class="mainContent">
+		<h1><i class="fa fa-trophy" aria-hidden="true"></i> The winning picture is:  </h1>	
+	<div class="left">
+		<h2><a href="events/${picture.event.id}"><img src="${picture.url}"></a></h2>
+	</div>
 	
-	<p>The winner will receive a copy of the winning picture with a frame. </p>
-	<p>Please contact our admins to receive a copy of the picture.</p>
-	<p>Come back next week to participate again. We're looking forward to see your awesome photos!</p>
-	
-	
-	
-	
+	<div class="right">	
+		<h2 class="title">" <c:out value="${picture.title}"/> "</h2>
+		<h2>Posted By: <c:out value="${picture.user.firstName}"/> <c:out value="${picture.user.lastName}"/></h2>
+		<h2>Total likes: ${picture.likes} </h2>
+		<h2>Event Name: <a href="events/${picture.event.id}"><c:out value="${picture.event.name}"/></a></h2>
+	<br>
+	<p>*The winner will receive a copy of the winning picture with a frame. </p>
+	<p>*Please contact our admins to receive a copy of the picture.</p>
+	<p>*Come back next week to participate again. We're looking forward to see your awesome photos!</p>
+	</div>
+</div>
 	<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-	<br><br>
 	<hr>
 	<br>
 	<p>*If you have any questions or concerns, feel free to contact us at: </p>
 
-		<h3><button><a href="mailTo:cherry2ney@gmail.com">Contact Narae</a></button><button><a href="mailTo:elliezhao14@gmail.com"> Contact Ellie</a></button><button><a href="mailTo:jeffhendricks00@gmail.com"> Contact Jeff</a></button><button><a href="/events">Back to Dashboard</a></button></h3>
+		<h3><button><a href="mailTo:cherry2ney@gmail.com">Contact Narae</a></button><button><a href="mailTo:elliezhao14@gmail.com"> Contact Ellie</a></button><button><a href="mailTo:jeffhendricks00@gmail.com"> Contact Jeff</a></button></h3>
+	
 
 
 </body>
