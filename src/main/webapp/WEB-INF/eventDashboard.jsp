@@ -6,39 +6,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-
-<link rel="stylesheet" href="/css/dashboard.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>nJelligrapher</title>
+	<meta charset="UTF-8">
+	<!-- <link rel="stylesheet" href="/css/dashboard.css"> -->
+	<link rel="stylesheet" href="/css/dash-board.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" >
+	<title>nJelligrapher</title>
 </head>
+
 <body>
-<div class="center">
-	<h1>Welcome, <c:out value="${user.firstName}"/> <i class="fa fa-heart" aria-hidden="true"></i></h1>
-	<a href="/announcements"><button type="button" >Announcements</button></a>
-	<a href="/events/pictures"><button type="button" >View Submitted Pictures</button></a>
-	<a href="#popup1"><button>Add An Event</button></a>
-	
-	<h3>Events near you </h3>
+
+	<div class="header">
+		
+		<h1>Welcome, <c:out value="${user.firstName}"/> <i class="fa fa-heart" aria-hidden="true"></i></h1>
+		
+		<div class="search">
+			<form action="/events/search" method="post" >
+				<p><input id="search" type="search" name="name" placeholder="search tags here..">
+				<button><i class="fa fa-search" aria-hidden="true"></i> Search </button>
+				<p>
+			</form>
+		</div> 
+		
+		<div class="logout">
+			<a href="logout">Log Out</a>
+		</div>
+		
+	</div>
+
+	<div class="navbar">
+		<a href="/announcements" id="amt"><i class="fa fa-bullhorn" aria-hidden="true"></i> Announcements</a>
+		<a href="/events/pictures"><i class="fa fa-picture-o" aria-hidden="true"></i> View All Pictures</a>
+		<a href="#add_event"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add An Event</a>
+	</div>
+
+<!-- 	<h3>Events near you </h3> -->
 
 	<table>
 		<thead>
 			<tr>
-				<th> Event Name </th>
-				<th> Date </th>
+				<th> <h2>Events Near You:</h2> </th>
+			<!-- 	<th> Date </th>
 				<th> Location </th>
 				<th> Host </th>
-				<th> Action </th>
+				<th> Action </th> -->
 			</tr>
 		</thead>	
 		<tbody>
 			<c:forEach items="${eventsInState}" var ="e">
 		<tr>
-			<td><a href="/events/${e.id}"><c:out value="${e.name}"/></a></td>
-			<td><fmt:formatDate value="${e.date}" pattern="MMMM dd, yyyy"/></td>
-			<td><c:out value="${e.city}"/>, <c:out value="${e.state}"/></td>
-			<td><c:out value="${e.host.firstName}"/> <c:out value="${e.host.lastName}"/></td>
 			<td>
+			<h3><a href="/events/${e.id}"><c:out value="${e.name}"/></a></h3>
+			<p><i class="fa fa-user-o" aria-hidden="true"></i> <c:out value="${e.host.firstName}"/> <c:out value="${e.host.lastName}"/></p>
+			<p><i class="fa fa-map-marker" aria-hidden="true"></i> <c:out value="${e.city}"/>, <c:out value="${e.state}"/></p>
+			<p><i class="fa fa-calendar-o" aria-hidden="true"></i> <fmt:formatDate value="${e.date}" pattern="MMMM dd, yyyy"/></p>
+			</td>
+			<td class="join_button">
 			
 				<c:set var="attending" value="null" />
 			
@@ -63,7 +86,7 @@
 					    
 						<input type="hidden"  name="user" value="${user.id}">
 						<input type="hidden"  name="event" value="${e.id}">
-					    <p>Joining <button>Cancel</button></p>
+					    <p>Going <button>Cancel</button></p>
 					</form>
 					
 				</c:if>
@@ -74,25 +97,26 @@
 		</tbody>
 	</table>
 	
-	<h3>Events in other locations </h3>
+<!-- 	<h3>Events in other locations </h3> -->
 	<table>
 		<thead>
 			<tr>
-				<th> Event Name </th>
-				<th> Date </th>
+				<th> <h2>Other Events: </h2></th>
+			<!-- 	<th> Date </th>
 				<th> Location </th>
 				<th> Host </th>
-				<th> Action </th>
+				<th> Action </th> -->
 			</tr>
 		</thead>	
 		<tbody>
 			<c:forEach items="${eventsOutState}" var ="e">
 		<tr>
-			<td><a href="/events/${e.id}"><c:out value="${e.name}"/></a></td>
-			<td><fmt:formatDate value="${e.date}" pattern="MMMM dd, yyyy"/></td>
-			<td><c:out value="${e.city}"/>, <c:out value="${e.state}"/></td>
-			<td><c:out value="${e.host.firstName}"/> <c:out value="${e.host.lastName}"/></td>
 			<td>
+			<h3><a href="/events/${e.id}"><c:out value="${e.name}"/></a></h3>
+			<p><i class="fa fa-user-o" aria-hidden="true"></i> <c:out value="${e.host.firstName}"/> <c:out value="${e.host.lastName}"/></p>
+			<p><i class="fa fa-map-marker" aria-hidden="true"></i> <c:out value="${e.city}"/>, <c:out value="${e.state}"/></p>
+			<p><i class="fa fa-calendar-o" aria-hidden="true"></i> <fmt:formatDate value="${e.date}" pattern="MMMM dd, yyyy"/></p>
+			<td class="join_button">
 
 				<c:set var="attending" value="null" />
 			
@@ -116,7 +140,7 @@
 				    <input type="hidden" name="_method" value="delete">
 					<input type="hidden"  name="user" value="${user.id}">
 					<input type="hidden"  name="event" value="${e.id}">
-				    <p>Joining <button>Cancel</button></p>
+				    <p>Going <button>Cancel</button></p>
 				</form>
 				</c:if>
 			</td>
@@ -127,7 +151,7 @@
 	
 	
    <div class="add">
-      <div id="popup1" class="overlay">
+      <div id="add_event" class="overlay">
                 <div class="popup">
                     <h2>Add an event: </h2>
                     <hr>
@@ -210,8 +234,8 @@
 				<br>
 				<hr>
 				<br>
-				<button id="add" class="btn btn -default">Add Event</button>
-        		<button type="button" id="cancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button id="add">Add Event</button>
+        		<a href="#"><button type="button" id="cancel" data-dismiss="modal">Cancel</button></a>
 			</form:form>
       </div>
        </div>
@@ -219,10 +243,8 @@
             
 
   </div>
-  </div>
+
 <br>
-<div class="logout">
-<a href="logout"><button type="button">Log Out</button></a>
-</div>
+
 </body>
 </html>
