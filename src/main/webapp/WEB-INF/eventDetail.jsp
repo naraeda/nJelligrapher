@@ -21,7 +21,7 @@
 	<h4><a href="/events"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Dashboard</a></h4>
 	<div class="search">
 		<form action="/events/search" method="post" >
-			<p><input id="search" type="search" name="name" placeholder="search tags here..">
+			<p><input id="search" type="search" name="name" placeholder="Search tags here..">
 			<button><i class="fa fa-search" aria-hidden="true"></i> Search </button>
 			<p>
 		</form>
@@ -227,7 +227,7 @@
 <div class="bottom">
 
 	 <div class="bottomLeft">
-		<h2>Submit your pictures here </h2>
+		<h2>SUBMIT PICTURES HERE </h2>
 		<p><form:errors path="photo.*"/></p>
 		<form:form method="POST" action="/test"  modelAttribute="picture" enctype="multipart/form-data">
 	        <p>
@@ -309,7 +309,7 @@
 	</div>
 	
 	<div class="bottomRight">
-			<h3>All Submitted Pictures </h3>
+			<h3>ALL SUBMITTED PICTURES </h3>
 			<c:forEach var="pic" items="${event.pictures}">
 				<div id="img">
 					<img src=<c:out value="${pic.url}"/>>

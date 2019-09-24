@@ -1,6 +1,7 @@
 *{
 	padding: 0px; 
 	margin: 0px;
+	font-family: sans-serif;
 }
 body{
 	width: 100%;
@@ -176,7 +177,7 @@ h1{
 	font-size: 20px;
 	display:inline-block;
 	width: 380px;
-	padding: 10px;
+	/* padding: 10px; */
 	text-align: left;
  	margin: 0px 15px 15px 55px; 
  	vertical-align:top;
@@ -194,7 +195,7 @@ h1{
 .bottomRight img{
 	height: 100px;
 	max-width: 100px; 
-	border-radius: 10px;
+	/* border-radius: 10px; */
 } 
 #img{
 	display:inline-block;
@@ -315,7 +316,7 @@ textarea{
      width: 445px; 
      margin: 1px;
      border:1px dotted #73AD21;
-	 border-radius: 5px;
+	 /* border-radius: 5px; */
 }
 .map{
 	display:inline-block;

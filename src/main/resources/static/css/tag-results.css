@@ -9,17 +9,19 @@ body{
 h1{
 	color: #009afc;
 	font-weight: lighter;
+	margin-top: 15px;
 }
 h2{
 	color:LightSeaGreen;
 	font-weight: lighter;
+	margin-bottom: 15px;
 }
 img{
 	display:inline-block;
 	width: 350px;
 	vertical-align:top;
-	border-radius: 10px;
-	box-shadow: 0 15px 20px rgba(0.1, 0, 0, 0.1);
+	/* border-radius: 10px; */
+	/* box-shadow: 0 15px 20px rgba(0.1, 0, 0, 0.1); */
 }
 .content{
 	display:inline-block;

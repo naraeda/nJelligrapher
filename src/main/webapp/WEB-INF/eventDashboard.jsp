@@ -22,7 +22,7 @@
 		
 		<div class="search">
 			<form action="/events/search" method="post" >
-				<p><input id="search" type="search" name="name" placeholder="search tags here..">
+				<p><input id="search" type="search" name="name" placeholder="Search tags here..">
 				<button><i class="fa fa-search" aria-hidden="true"></i> Search </button>
 				<p>
 			</form>
@@ -153,7 +153,7 @@
    <div class="add">
       <div id="add_event" class="overlay">
                 <div class="popup">
-                    <h2>Add an event: </h2>
+                    <h2 id="color">ADD AN EVENT: </h2>
                     <hr>
                     <br>
                     <a class="close" href="#">&times;</a>
@@ -161,22 +161,24 @@
 			<p><form:errors path="event.*"/></p>
 			<form:form action="/events" method="POST" modelAttribute="event">
 				<p>
-					<form:label path="name">Name: </form:label>
+					<form:label path="name">Name </form:label>
 					<form:input type="text" placeholder="Event Name" path="name"/>
 				</p>
 				<p>
-					<form:label path="date">Date: </form:label>
+					<form:label path="date">Date </form:label>
 					<form:input type="date" path="date"/>
 				</p>
 				<p>
-					<form:label path="description">Description: </form:label>
+					<form:label path="description">Description </form:label>
 					<form:textarea type="text" rows="4" cols="50" placeholder="Tell us about the event!" path="description"/>
 				</p>
 				<p>
-					<form:label path="city">Location: </form:label>
-					<form:input type="text" placeholder="City of event" path="city"/>
+					<form:label path="city">Location </form:label>
+				</p>
+				<p>
+					<form:input id="city4" type="text" placeholder="City of event" path="city"/>
 					
-					<form:select path="state">
+					<form:select id="state4" path="state">
 							<form:option value="AL">AL</form:option>
 							<form:option value="AK">AK</form:option>
 							<form:option value="AZ">AZ</form:option>
@@ -234,8 +236,8 @@
 				<br>
 				<hr>
 				<br>
-				<button id="add">Add Event</button>
-        		<a href="#"><button type="button" id="cancel" data-dismiss="modal">Cancel</button></a>
+				<button id="add">Add</button>
+        		<a href="#" id="color"><button type="button" id="cancel" data-dismiss="modal">Later</button></a>
 			</form:form>
       </div>
        </div>
