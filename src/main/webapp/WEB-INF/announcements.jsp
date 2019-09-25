@@ -23,7 +23,7 @@
 		</form>
 	</div> 
 	<div class="logout">
-		<a href="logout">Log Out</a>
+		<a href="/logout">Log Out</a>
 	</div>	
 </div>
 <div class="mainContent">

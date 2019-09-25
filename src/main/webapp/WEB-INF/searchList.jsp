@@ -20,7 +20,7 @@
 		</form>
 	</div> 
 	<div class="logout">
-		<a href="logout">Log Out</a>
+		<a href="/logout">Log Out</a>
 	</div>	
 </div>
 	<h1>Pictures with tags searched:</h1>
