@@ -17,7 +17,7 @@
 	<h4><a href="/events"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Dashboard</a></h4>
 	<div class="search">
 		<form action="/events/search" method="post" >
-			<p><input id="search" type="search" name="name" placeholder="search tags here..">
+			<p><input id="search" type="search" name="name" placeholder="Search tags here..">
 			<button><i class="fa fa-search" aria-hidden="true"></i> Search </button>
 			<p>
 		</form>

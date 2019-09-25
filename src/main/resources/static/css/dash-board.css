@@ -166,12 +166,13 @@ button:hover {
   border-radius: 5px;
   width: 30%;
   position: relative;
+  font-family: sans-serif;
 }
 
 .popup h2 {
   margin-top: 0;
   color: #333;
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: sans-serif;
 }
 .popup .close {
   position: absolute;
@@ -208,7 +209,7 @@ color: #cdae02;
 	margin: 3px;
 }
 .add input{
-	width: 90%;
+	width: 97%;
 	color: grey;
 	font-size: 20px;
 	margin: 3px;
@@ -222,17 +223,30 @@ color: #cdae02;
 	border-radius: 5px;
 }
 .add button{
-	background: #eec327;
-	border-color: #eec327;
+	background: teal;
+	border-color: teal;
 	margin-right: 5px;
 }
 .add button:hover{
-background: gold;
+background: #00c0c0;
 }
 textarea{
 	border-color: grey;
 	border-radius: 5px;
 	font-size: 20px;
-	width: 90%;
+	width: 98%;
 	color: grey;
+}
+
+#color{
+	color: teal;
+}
+
+
+#city4{
+	width: 80%;
+}
+
+#state4{
+	width: 14%;
 }
