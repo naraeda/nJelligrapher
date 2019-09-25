@@ -3,12 +3,15 @@ $(document).ready(function(){
 		var id = $(this).attr("data-photo-id")
 		var likeClass = document.getElementsByClassName("neutral")
 		var likedOrNot;
-		if(likeClass){
+		if($(this).hasClass("neutral")){
 			likedOrNot = 1;
-			$(this).hide();
-		}else{
+			$(this).removeClass();
+			$(this).addClass("liked")
+		}else if($(this).hasClass("liked")){
 			
 			likedOrNot = -1;
+			$(this).removeClass("liked");
+			$(this).addClass("neutral");
 		}
 
 		var url = "/likes/" + $(this).attr("data-photo-id");
@@ -33,20 +36,17 @@ $(document).ready(function(){
 		
 	})
 	
+	$("#signup").hide();
 	$("#signup").click(function(){
+		$("#signup").hide();
+		$("#login").show();
 		$(".message").css("transform","translateX(100%)");
-		if($(".message").hasClass("login")){
-			$(".message").removeClass("login")
-		}
-		  $(".message").addClass("signup");
 	});
 
 	$("#login").click(function() {
+		$("#signup").show();
+		$("#login").hide();
 	  $(".message").css("transform", "translateX(0)");
-	  if ($(".message").hasClass("login")) {
-	    $(".message").removeClass("signup");
-	  }
-	  $(".message").addClass("login");
 	})
 	
 	$('.like_button').click(function(){
