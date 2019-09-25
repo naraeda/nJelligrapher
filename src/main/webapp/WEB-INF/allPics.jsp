@@ -7,16 +7,18 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
 	<script src="/js/script.js"></script>
-	<link rel="stylesheet" href="/css/style.css"/>
-	<link rel="stylesheet" href="/css/style2.css"/>
-	<title>Jelligrapher</title>
+<!-- 	<link rel="stylesheet" href="/css/style.css"/>
+	<link rel="stylesheet" href="/css/style2.css"/> -->
+	<link rel="stylesheet" href="/css/all-pics.css"/>
+	<title>nJelligrapher</title>
 </head>
 <body>
-	<div class="header">Welcome To Our Photograph Section!</div>
+	<div class="header">Welcome To Our Photograph Section <i class="fa fa-camera" aria-hidden="true"></i></div>
 	<div class="images">
 		<c:forEach var="picture" items="${pictures}">
 			<div class="image">
@@ -26,14 +28,14 @@
 				<div class="pic_div">
 					<img src="${picture.url}">
 				</div>
-				<p class="photo_name">Picture</p>
-				<div class="wrapper">
-						<a href="javascript:void(0);" data-photo-id="${picture.id}" class="like_button neutral">
-					    <i class="material-icons not-liked bouncy">favorite_border</i>
-					    <i class="material-icons is-liked bouncy">favorite</i>
-				    	<span class="like-overlay"></span>
-					</a>
-				</div>
+					<div class="wrapper">
+							<a href="javascript:void(0);" data-photo-id="${picture.id}" class="like_button neutral">
+						    <i class="material-icons not-liked bouncy">favorite_border</i>
+						    <i class="material-icons is-liked bouncy">favorite</i>
+					    	<span class="like-overlay"></span>
+							</a>
+					</div>
+				<p class="photo_name">${picture.title}</p>
 			</div>
 		</c:forEach>
 	</div>
