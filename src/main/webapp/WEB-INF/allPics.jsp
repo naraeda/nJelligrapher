@@ -39,5 +39,6 @@
 			</div>
 		</c:forEach>
 	</div>
+	<span class="navbar"><a href="/events">Back To Dashboard</a></span>
 </body>
 </html>
