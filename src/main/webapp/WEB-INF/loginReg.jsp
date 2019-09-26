@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/css/login-reg.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/script.js"></script>
-<title>Welcome to nJelligrapher!</title>
+<title>Welcome</title>
 </head>
 <body>
 	<div class="container">
@@ -24,21 +24,23 @@
 			    
     <div class="form form--signup">
     <div class="form--heading">SIGN UP</div>
-    <p><form:errors path="user.*"/></p>
+    <!--  <p><form:errors path="user.*"/></p> -->
 
     <form:form method="POST" action="/" modelAttribute="user" autocomplete="off">
         <p>
             <form:label path="firstName">First Name</form:label>
             <form:input type="text" path="firstName"/>
+            <form:errors path="firstName" class="errors"/>
         </p>
        	<p>
             <form:label path="lastName">Last Name</form:label>
             <form:input type="text" path="lastName"/>
+            <form:errors path="lastName" class="errors"/>
         </p>
         <p>
             <form:label id="emailLabel" path="email">Email</form:label>
-            
             <form:input id="emailInput" type="text" path="email"/>
+            <form:errors path="email" class="errors" id="emailError"/>
         </p>
         <p>
             <form:label id="locLabel" path="city">Location</form:label>
@@ -96,10 +98,12 @@
 				<form:option value="WV">WV</form:option>
 				<form:option value="WY">WY</form:option>
             </form:select>
+            <br><form:errors path="city" class="errors" id="cityError"/>
         </p>
         <p>
             <form:label id="pw1" path="password">Password</form:label>
             <form:password id="pw1" path="password"/>
+            <form:errors path="password" class="errors"/>
         </p>
         <p id="pw3">
             <form:label path="passwordConfirmation">Password Confirmation</form:label>
@@ -110,17 +114,17 @@
     </div>
     <div class="form form--login">
    	<div class="form--heading">Welcome Back!</div>
-    <p><c:out value="${invalid}"/></p>
-    <p><c:out value="${invalid2}"/></p>
-    <p><c:out value="${error2}"/></p>
+    <p class="errors"><c:out value="${error2}"/></p>
     <form method="post" action="/login" autocomplete="off">
         <p>
             <label id="email4" for="email">Email</label>
             <input id="email3" type="email"  name="email"/>
+            <p class="errors"><c:out value="${invalid}"/></p>
         </p>
         <p>
             <label for="password">Password</label>
             <input type="password" name="password"/>
+            <p class="errors"><c:out value="${invalid2}"/></p>
         </p>
         <button class="button" id="loginBut" type="submit">Login!</button>
     </form>   
