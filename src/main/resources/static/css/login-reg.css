@@ -8,6 +8,18 @@ body{
 	/* background:linear-gradient(Turquoise,LightSeaGreen,DarkCyan,LightSeaGreen,Turquoise); */
 }
 
+.errors{
+	font-size:10px;
+	color: red;
+}
+
+/* #cityError{
+	padding-left:30px;
+}*/
+#emailError{
+display:block;
+}
+
 .vote_bar{
 	border:1px solid black;
 	width:90%;
@@ -321,6 +333,10 @@ select{
 	width: 120px;
 }
 
+#loginBut:hover{
+	background-color: #75c4c0;
+}
+
 .signupfont{
 	font-family: sans-serif;
 }
@@ -332,6 +348,7 @@ select{
 .button:hover {
   transform: translateY(4px);
   transition: 0.4s all ease;
+  background-color: #75c4c0;
 }
 @media (max-width: 750px) {
   .container {

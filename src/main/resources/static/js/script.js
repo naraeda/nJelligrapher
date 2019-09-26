@@ -1,18 +1,23 @@
 $(document).ready(function(){
 	$(".like_button").click(function(){
 		var id = $(this).attr("data-photo-id")
-		var likeClass = document.getElementsByClassName("neutral")
 		var likedOrNot;
 		if($(this).hasClass("neutral")){
 			likedOrNot = 1;
 			$(this).removeClass();
 			$(this).addClass("liked")
+			$(this).children("i").removeClass("fa fa-heart-o is-liked")
+			$(this).children("i").addClass("fa fa-heart not-liked")
 		}else if($(this).hasClass("liked")){
 			
 			likedOrNot = -1;
 			$(this).removeClass("liked");
 			$(this).addClass("neutral");
+			$(this).children("i").removeClass("fa fa-heart not-liked")
+			$(this).children("i").addClass("fa fa-heart-o is-liked")
 		}
+		
+		
 
 		var url = "/likes/" + $(this).attr("data-photo-id");
 		var vote = ".vote_fill_" + id
@@ -49,7 +54,7 @@ $(document).ready(function(){
 	  $(".message").css("transform", "translateX(0)");
 	})
 	
-	$('.like_button').click(function(){
-        $(this).toggleClass('is-active');
-    })
+//	$('.like_button').click(function(){
+//        $(this).toggleClass('is-active');
+//    })
 })

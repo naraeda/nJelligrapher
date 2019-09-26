@@ -12,8 +12,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
 	<script src="/js/script.js"></script>
-<!-- 	<link rel="stylesheet" href="/css/style.css"/>
-	<link rel="stylesheet" href="/css/style2.css"/> -->
 	<link rel="stylesheet" href="/css/all-pics.css"/>
 	<title>nJelligrapher</title>
 </head>
@@ -30,9 +28,7 @@
 				</div>
 					<div class="wrapper">
 							<a href="javascript:void(0);" data-photo-id="${picture.id}" class="like_button neutral">
-						    <i class="material-icons not-liked bouncy">favorite_border</i>
-						    <i class="material-icons is-liked bouncy">favorite</i>
-					    	<span class="like-overlay"></span>
+						    <i class="fa fa-heart-o not-liked" aria-hidden="true" style="color:teal"></i>
 							</a>
 					</div>
 				<p class="photo_name">${picture.title}</p>
