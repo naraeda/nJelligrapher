@@ -32,7 +32,6 @@ build/
 
 ### ignoring files for apikeys ###
 
-
 ### jsp page with maps api ###
 src/main/java/com.codingdojo.groupproject.s3Services
 src/main/resources/application.properties
