@@ -10,8 +10,8 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 
 public class UploadFile {
-	private final String AWSKEY = "AKIA4RWVHHZFP43FTM74";
-	private final String AWSPASS = "adHaRKQcK/xQC/CwjxGZOMEoGdXspHvhYTvjuF71";
+	private final String AWSKEY = System.getenv("jsa.aws.access_key_id");
+	private final String AWSPASS = System.getenv("jsa.aws.secret_access_key");
 	
 	public String getAWSKEY() {
 		return AWSKEY;
