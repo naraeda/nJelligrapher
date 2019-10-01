@@ -34,4 +34,4 @@ build/
 .env
 
 ### jsp page with maps api ###
-**/src/main/java/com.codingdojo.groupproject.s3Services
+**/src/main/java/com.codingdojo.groupproject.s3Services/
