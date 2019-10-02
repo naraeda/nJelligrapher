@@ -153,7 +153,7 @@
 	 	<h2 id="cityLocation">${ event.city }</h2>
 	    <div id="map"></div>
 	</div>
-	<!-- <script>
+ <script>
 	    
 	  
 	    var map;
@@ -165,7 +165,7 @@
 	      function initMap() {
 	  	
 				var location = $('#cityLocation').text();
-				$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?&address='+ location + '&key=AIzaSyCF-SC0scu2ZMqEbTYJ28BwlFQFIiNh8rc', function(data) {
+				$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?&address='+ location + '&key=', function(data) {
 					lat = data.results[0].geometry.location.lat;
 					lng = data.results[0].geometry.location.lng;
 					console.log(lat, lng);
@@ -209,9 +209,9 @@
 	        });
 	      }
 	    </script>
-	    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF-SC0scu2ZMqEbTYJ28BwlFQFIiNh8rc&callback=initMap" async defer></script>
+	    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
 	    
-	 --> 
+ 
 	 <!--map ends-->
 	 
 	 <div class="topRight">
